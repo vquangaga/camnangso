@@ -23,6 +23,7 @@ function TamLyPage() {
         title="Tâm lý học 'Bốn bức tường'"
         description="Bốn bức tường có thể là nhà tù hoặc thiên đường — phụ thuộc vào cách bạn kích thích trí não cho boss mỗi ngày."
         icon={<Brain className="w-3.5 h-3.5" />}
+        tone="orange"
       />
 
       <section className="mx-auto max-w-7xl px-5 lg:px-8 py-16">

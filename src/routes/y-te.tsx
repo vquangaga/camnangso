@@ -36,6 +36,7 @@ function YTePage() {
         title="Y tế số & Dinh dưỡng cho thú ít vận động"
         description="Sổ tiêm điện tử, công thức tính calo theo cân nặng và lịch tẩy giun — tất cả có thể chụp màn hình lưu lại."
         icon={<Stethoscope className="w-3.5 h-3.5" />}
+        tone="blue"
       />
 
       <section className="mx-auto max-w-7xl px-5 lg:px-8 py-16">

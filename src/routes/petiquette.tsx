@@ -23,6 +23,7 @@ function PetiquettePage() {
         title="Petiquette — Văn minh sống chung"
         description="Một boss hư không phải lỗi của boss, mà là của con sen. Đây là bộ quy tắc giúp cộng đồng chung cư yêu mến thú cưng của bạn."
         icon={<Users className="w-3.5 h-3.5" />}
+        tone="yellow"
       />
 
       <section className="mx-auto max-w-7xl px-5 lg:px-8 py-16 grid lg:grid-cols-3 gap-6">

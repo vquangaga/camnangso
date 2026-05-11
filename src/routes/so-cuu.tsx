@@ -58,6 +58,7 @@ function SoCuuPage() {
         title="Sơ cứu khẩn cấp trong 60 giây vàng"
         description="Mỗi tình huống dưới đây có 'cửa sổ vàng' rất ngắn. Lưu màn hình trang này — bạn sẽ biết phải làm gì."
         icon={<Siren className="w-3.5 h-3.5" />}
+        tone="green"
       />
 
       <section className="mx-auto max-w-4xl px-5 lg:px-8 py-12">
