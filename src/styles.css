@@ -1,7 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -60,12 +60,22 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-display: "Lora", ui-serif, Georgia, serif;
-  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Baloo 2", ui-rounded, system-ui, sans-serif;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
   --color-cream: var(--cream);
   --color-clay: var(--clay);
   --color-sage: var(--sage);
   --color-ink: var(--ink);
+  --color-pastel-pink: var(--pastel-pink);
+  --color-pastel-pink-ink: var(--pastel-pink-ink);
+  --color-pastel-blue: var(--pastel-blue);
+  --color-pastel-blue-ink: var(--pastel-blue-ink);
+  --color-pastel-orange: var(--pastel-orange);
+  --color-pastel-orange-ink: var(--pastel-orange-ink);
+  --color-pastel-green: var(--pastel-green);
+  --color-pastel-green-ink: var(--pastel-green-ink);
+  --color-pastel-yellow: var(--pastel-yellow);
+  --color-pastel-yellow-ink: var(--pastel-yellow-ink);
 }
 
 :root {
@@ -108,6 +118,18 @@
   --clay: oklch(0.58 0.15 35);
   --sage: oklch(0.62 0.08 150);
   --ink: oklch(0.22 0.03 40);
+
+  /* Pastel palette — pillar colors */
+  --pastel-pink:        oklch(0.92 0.05 10);    /* 1. Không gian — hồng */
+  --pastel-pink-ink:    oklch(0.45 0.12 10);
+  --pastel-blue:        oklch(0.90 0.05 230);   /* 2. Y tế — xanh biển */
+  --pastel-blue-ink:    oklch(0.42 0.12 235);
+  --pastel-orange:      oklch(0.90 0.07 55);    /* 3. Tâm lý — cam */
+  --pastel-orange-ink:  oklch(0.50 0.14 50);
+  --pastel-green:       oklch(0.91 0.06 145);   /* 4. Sơ cứu — xanh lá */
+  --pastel-green-ink:   oklch(0.42 0.12 150);
+  --pastel-yellow:      oklch(0.94 0.08 95);    /* 5. Petiquette — vàng */
+  --pastel-yellow-ink:  oklch(0.48 0.12 85);
 }
 
 @layer base {

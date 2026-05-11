@@ -13,11 +13,11 @@ export const Route = createFileRoute("/")({
 });
 
 const pillars = [
-  { to: "/khong-gian", icon: Home, title: "Không gian sống", desc: "Tối ưu căn hộ nhỏ: góc ăn, góc vệ sinh, an toàn ban công.", color: "bg-primary/10 text-primary" },
-  { to: "/y-te", icon: Stethoscope, title: "Y tế & Dinh dưỡng", desc: "Sổ tiêm điện tử, công thức calo cho thú ít vận động.", color: "bg-secondary/15 text-secondary" },
-  { to: "/tam-ly", icon: Brain, title: "Tâm lý 4 bức tường", desc: "Indoor games, làm quen tiếng ồn, xử lý lo âu xa chủ.", color: "bg-accent/30 text-foreground" },
-  { to: "/so-cuu", icon: Siren, title: "Sơ cứu khẩn cấp", desc: "Hóc dị vật, sốc nhiệt, ngộ độc — xử lý trong 60 giây.", color: "bg-destructive/10 text-destructive" },
-  { to: "/petiquette", icon: Users, title: "Petiquette", desc: "Quy tắc thang máy, công viên, hành lang chung cư.", color: "bg-primary/10 text-primary" },
+  { to: "/khong-gian", icon: Home,        title: "Không gian sống",     desc: "Tối ưu căn hộ nhỏ: góc ăn, góc vệ sinh, an toàn ban công.",  bg: "bg-pastel-pink",   ink: "text-pastel-pink-ink",   ring: "hover:border-pastel-pink-ink/40" },
+  { to: "/y-te",       icon: Stethoscope, title: "Y tế & Dinh dưỡng",   desc: "Sổ tiêm điện tử, công thức calo cho thú ít vận động.",      bg: "bg-pastel-blue",   ink: "text-pastel-blue-ink",   ring: "hover:border-pastel-blue-ink/40" },
+  { to: "/tam-ly",     icon: Brain,       title: "Tâm lý 4 bức tường",  desc: "Indoor games, làm quen tiếng ồn, xử lý lo âu xa chủ.",      bg: "bg-pastel-orange", ink: "text-pastel-orange-ink", ring: "hover:border-pastel-orange-ink/40" },
+  { to: "/so-cuu",     icon: Siren,       title: "Sơ cứu khẩn cấp",     desc: "Hóc dị vật, sốc nhiệt, ngộ độc — xử lý trong 60 giây.",     bg: "bg-pastel-green",  ink: "text-pastel-green-ink",  ring: "hover:border-pastel-green-ink/40" },
+  { to: "/petiquette", icon: Users,       title: "Petiquette",          desc: "Quy tắc thang máy, công viên, hành lang chung cư.",         bg: "bg-pastel-yellow", ink: "text-pastel-yellow-ink", ring: "hover:border-pastel-yellow-ink/40" },
 ] as const;
 
 function HomePage() {
@@ -92,14 +92,14 @@ function HomePage() {
             <Link
               key={p.to}
               to={p.to}
-              className="group rounded-2xl border border-border bg-card p-7 hover:border-primary/40 hover:shadow-lg transition-all"
+              className={`group rounded-2xl border border-border bg-card p-7 hover:shadow-lg transition-all ${p.ring}`}
             >
-              <span className={`grid place-items-center w-12 h-12 rounded-xl ${p.color}`}>
+              <span className={`grid place-items-center w-12 h-12 rounded-xl ${p.bg} ${p.ink}`}>
                 <p.icon className="w-6 h-6" />
               </span>
               <h3 className="mt-5 font-display text-2xl">{p.title}</h3>
               <p className="mt-2 text-muted-foreground">{p.desc}</p>
-              <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
+              <span className={`mt-5 inline-flex items-center gap-1 text-sm font-medium ${p.ink} group-hover:gap-2 transition-all`}>
                 Xem chi tiết <ArrowRight className="w-4 h-4" />
               </span>
             </Link>

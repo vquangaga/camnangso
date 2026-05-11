@@ -23,6 +23,7 @@ function KhongGianPage() {
         title="Không gian sống tối ưu cho căn hộ nhỏ"
         description="30m² vẫn đủ chỗ cho boss nếu bạn biết phân vùng đúng cách. Đây là bản đồ chi tiết cho từng centimet."
         icon={<Home className="w-3.5 h-3.5" />}
+        tone="pink"
       />
 
       <section className="mx-auto max-w-7xl px-5 lg:px-8 py-16 grid lg:grid-cols-3 gap-6">
