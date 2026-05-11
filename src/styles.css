@@ -118,6 +118,18 @@
   --clay: oklch(0.58 0.15 35);
   --sage: oklch(0.62 0.08 150);
   --ink: oklch(0.22 0.03 40);
+
+  /* Pastel palette — pillar colors */
+  --pastel-pink:        oklch(0.92 0.05 10);    /* 1. Không gian — hồng */
+  --pastel-pink-ink:    oklch(0.45 0.12 10);
+  --pastel-blue:        oklch(0.90 0.05 230);   /* 2. Y tế — xanh biển */
+  --pastel-blue-ink:    oklch(0.42 0.12 235);
+  --pastel-orange:      oklch(0.90 0.07 55);    /* 3. Tâm lý — cam */
+  --pastel-orange-ink:  oklch(0.50 0.14 50);
+  --pastel-green:       oklch(0.91 0.06 145);   /* 4. Sơ cứu — xanh lá */
+  --pastel-green-ink:   oklch(0.42 0.12 150);
+  --pastel-yellow:      oklch(0.94 0.08 95);    /* 5. Petiquette — vàng */
+  --pastel-yellow-ink:  oklch(0.48 0.12 85);
 }
 
 @layer base {
