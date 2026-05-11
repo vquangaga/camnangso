@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 function NotFoundComponent() {
   return (
@@ -72,21 +74,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Cẩm Nang Số — Chăm Sóc Thú Cưng Môi Trường Đô Thị" },
+      { name: "description", content: "Bộ giải pháp toàn diện về không gian, dinh dưỡng, y tế và tâm lý cho chó mèo nuôi trong căn hộ chung cư." },
+      { name: "author", content: "Cẩm Nang Số" },
+      { property: "og:title", content: "Cẩm Nang Số — Chăm Sóc Thú Cưng Đô Thị" },
+      { property: "og:description", content: "Tra cứu nhanh: không gian, y tế, tâm lý, sơ cứu và quy tắc văn minh khi nuôi thú cưng trong chung cư." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
+    links: [{ rel: "stylesheet", href: appCss }],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -96,7 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="vi">
       <head>
         <HeadContent />
       </head>
@@ -113,7 +109,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="min-h-screen flex flex-col">
+        <SiteHeader />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <SiteFooter />
+      </div>
     </QueryClientProvider>
   );
 }
