@@ -9,6 +9,7 @@ const links = [
   { to: "/tam-ly", label: "Tâm lý" },
   { to: "/so-cuu", label: "Sơ cứu" },
   { to: "/petiquette", label: "Petiquette" },
+  { to: "/tai-nguyen", label: "Tài nguyên & FAQ" },
 ] as const;
 
 export function SiteHeader() {

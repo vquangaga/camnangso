@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YTeRouteImport } from './routes/y-te'
 import { Route as TamLyRouteImport } from './routes/tam-ly'
+import { Route as TaiNguyenRouteImport } from './routes/tai-nguyen'
 import { Route as SoCuuRouteImport } from './routes/so-cuu'
 import { Route as PetiquetteRouteImport } from './routes/petiquette'
 import { Route as KhongGianRouteImport } from './routes/khong-gian'
@@ -24,6 +25,11 @@ const YTeRoute = YTeRouteImport.update({
 const TamLyRoute = TamLyRouteImport.update({
   id: '/tam-ly',
   path: '/tam-ly',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaiNguyenRoute = TaiNguyenRouteImport.update({
+  id: '/tai-nguyen',
+  path: '/tai-nguyen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SoCuuRoute = SoCuuRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/khong-gian': typeof KhongGianRoute
   '/petiquette': typeof PetiquetteRoute
   '/so-cuu': typeof SoCuuRoute
+  '/tai-nguyen': typeof TaiNguyenRoute
   '/tam-ly': typeof TamLyRoute
   '/y-te': typeof YTeRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/khong-gian': typeof KhongGianRoute
   '/petiquette': typeof PetiquetteRoute
   '/so-cuu': typeof SoCuuRoute
+  '/tai-nguyen': typeof TaiNguyenRoute
   '/tam-ly': typeof TamLyRoute
   '/y-te': typeof YTeRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/khong-gian': typeof KhongGianRoute
   '/petiquette': typeof PetiquetteRoute
   '/so-cuu': typeof SoCuuRoute
+  '/tai-nguyen': typeof TaiNguyenRoute
   '/tam-ly': typeof TamLyRoute
   '/y-te': typeof YTeRoute
 }
@@ -79,16 +88,25 @@ export interface FileRouteTypes {
     | '/khong-gian'
     | '/petiquette'
     | '/so-cuu'
+    | '/tai-nguyen'
     | '/tam-ly'
     | '/y-te'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/khong-gian' | '/petiquette' | '/so-cuu' | '/tam-ly' | '/y-te'
+  to:
+    | '/'
+    | '/khong-gian'
+    | '/petiquette'
+    | '/so-cuu'
+    | '/tai-nguyen'
+    | '/tam-ly'
+    | '/y-te'
   id:
     | '__root__'
     | '/'
     | '/khong-gian'
     | '/petiquette'
     | '/so-cuu'
+    | '/tai-nguyen'
     | '/tam-ly'
     | '/y-te'
   fileRoutesById: FileRoutesById
@@ -98,6 +116,7 @@ export interface RootRouteChildren {
   KhongGianRoute: typeof KhongGianRoute
   PetiquetteRoute: typeof PetiquetteRoute
   SoCuuRoute: typeof SoCuuRoute
+  TaiNguyenRoute: typeof TaiNguyenRoute
   TamLyRoute: typeof TamLyRoute
   YTeRoute: typeof YTeRoute
 }
@@ -116,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/tam-ly'
       fullPath: '/tam-ly'
       preLoaderRoute: typeof TamLyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tai-nguyen': {
+      id: '/tai-nguyen'
+      path: '/tai-nguyen'
+      fullPath: '/tai-nguyen'
+      preLoaderRoute: typeof TaiNguyenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/so-cuu': {
@@ -154,9 +180,20 @@ const rootRouteChildren: RootRouteChildren = {
   KhongGianRoute: KhongGianRoute,
   PetiquetteRoute: PetiquetteRoute,
   SoCuuRoute: SoCuuRoute,
+  TaiNguyenRoute: TaiNguyenRoute,
   TamLyRoute: TamLyRoute,
   YTeRoute: YTeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
