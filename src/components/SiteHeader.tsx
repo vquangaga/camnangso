@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, PawPrint } from "lucide-react";
+import { SmartSearch } from "@/components/SmartSearch";
 
 const links = [
   { to: "/", label: "Trang chủ" },
@@ -38,13 +39,19 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <button
-          className="lg:hidden p-2 rounded-md hover:bg-muted"
-          onClick={() => setOpen(!open)}
-          aria-label="Menu"
-        >
-          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        <div className="flex items-center gap-2">
+          <SmartSearch trigger="button" />
+          <div className="lg:hidden">
+            <SmartSearch trigger="icon" />
+          </div>
+          <button
+            className="lg:hidden p-2 rounded-md hover:bg-muted"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
+            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
       {open && (
         <nav className="lg:hidden border-t border-border bg-background px-5 py-3 flex flex-col gap-1">
