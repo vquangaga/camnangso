@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, PawPrint } from "lucide-react";
+import { SmartSearch } from "@/components/SmartSearch";
 
 const links = [
   { to: "/", label: "Trang chủ" },
