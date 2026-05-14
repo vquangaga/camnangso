@@ -3,24 +3,24 @@ import { Sparkles, Heart, Star, PawPrint } from "lucide-react";
 /** Floating colorful blobs as background */
 export function Blobs() {
   return (
-    <>
-      <span className="blob bg-pastel-pink" style={{ width: 320, height: 320, top: -80, left: -60 }} />
-      <span className="blob bg-pastel-blue" style={{ width: 280, height: 280, top: 40, right: -80 }} />
-      <span className="blob bg-pastel-yellow" style={{ width: 360, height: 360, bottom: -120, left: "30%" }} />
-      <span className="blob bg-pastel-green" style={{ width: 240, height: 240, bottom: -60, right: 40 }} />
-    </>
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      <span className="blob bg-pastel-pink hidden sm:block" style={{ width: "min(40vw,320px)", height: "min(40vw,320px)", top: -80, left: -60 }} />
+      <span className="blob bg-pastel-blue" style={{ width: "min(50vw,280px)", height: "min(50vw,280px)", top: 40, right: -80 }} />
+      <span className="blob bg-pastel-yellow hidden sm:block" style={{ width: "min(55vw,360px)", height: "min(55vw,360px)", bottom: -120, left: "30%" }} />
+      <span className="blob bg-pastel-green" style={{ width: "min(45vw,240px)", height: "min(45vw,240px)", bottom: -60, right: 40 }} />
+    </div>
   );
 }
 
 /** Sprinkled stickers (paws, hearts, sparkles) — purely decorative */
 export function Sprinkles() {
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-      <PawPrint className="absolute w-8 h-8 text-pastel-pink-ink/60 float-slow" style={{ top: "10%", left: "6%", ['--r' as any]: "-18deg" }} />
-      <Heart className="absolute w-6 h-6 text-pastel-orange-ink/70 float-med fill-pastel-orange" style={{ top: "22%", right: "10%", ['--r' as any]: "12deg" }} />
-      <Sparkles className="absolute w-7 h-7 text-pastel-yellow-ink/80 float-fast" style={{ top: "60%", left: "4%" }} />
-      <Star className="absolute w-5 h-5 text-pastel-blue-ink/70 float-slow fill-pastel-blue" style={{ top: "70%", right: "8%", ['--r' as any]: "8deg" }} />
-      <PawPrint className="absolute w-6 h-6 text-pastel-green-ink/60 float-med" style={{ bottom: "8%", left: "40%", ['--r' as any]: "20deg" }} />
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden hidden sm:block">
+      <PawPrint className="absolute w-6 h-6 sm:w-8 sm:h-8 text-pastel-pink-ink/60 float-slow" style={{ top: "10%", left: "6%", ['--r' as any]: "-18deg" }} />
+      <Heart className="absolute w-5 h-5 sm:w-6 sm:h-6 text-pastel-orange-ink/70 float-med fill-pastel-orange" style={{ top: "22%", right: "10%", ['--r' as any]: "12deg" }} />
+      <Sparkles className="absolute w-6 h-6 sm:w-7 sm:h-7 text-pastel-yellow-ink/80 float-fast" style={{ top: "60%", left: "4%" }} />
+      <Star className="absolute w-4 h-4 sm:w-5 sm:h-5 text-pastel-blue-ink/70 float-slow fill-pastel-blue" style={{ top: "70%", right: "8%", ['--r' as any]: "8deg" }} />
+      <PawPrint className="absolute w-5 h-5 sm:w-6 sm:h-6 text-pastel-green-ink/60 float-med" style={{ bottom: "8%", left: "40%", ['--r' as any]: "20deg" }} />
     </div>
   );
 }
@@ -29,13 +29,13 @@ export function Sprinkles() {
 export function FunMarquee({ items }: { items: string[] }) {
   const loop = [...items, ...items];
   return (
-    <div className="relative overflow-hidden border-y border-border bg-foreground text-background py-3">
-      <div className="marquee flex gap-10 whitespace-nowrap will-change-transform">
+    <div className="relative overflow-hidden border-y border-border bg-foreground text-background py-2 sm:py-3">
+      <div className="marquee flex gap-6 sm:gap-10 whitespace-nowrap will-change-transform">
         {loop.map((t, i) => (
-          <span key={i} className="inline-flex items-center gap-3 font-display text-lg">
-            <PawPrint className="w-4 h-4 text-pastel-yellow" />
+          <span key={i} className="inline-flex items-center gap-2 sm:gap-3 font-display text-sm sm:text-lg">
+            <PawPrint className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pastel-yellow" />
             {t}
-            <Sparkles className="w-4 h-4 text-pastel-pink" />
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pastel-pink" />
           </span>
         ))}
       </div>
