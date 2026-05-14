@@ -3,12 +3,12 @@ import { Sparkles, Heart, Star, PawPrint } from "lucide-react";
 /** Floating colorful blobs as background */
 export function Blobs() {
   return (
-    <>
-      <span className="blob bg-pastel-pink" style={{ width: 320, height: 320, top: -80, left: -60 }} />
-      <span className="blob bg-pastel-blue" style={{ width: 280, height: 280, top: 40, right: -80 }} />
-      <span className="blob bg-pastel-yellow" style={{ width: 360, height: 360, bottom: -120, left: "30%" }} />
-      <span className="blob bg-pastel-green" style={{ width: 240, height: 240, bottom: -60, right: 40 }} />
-    </>
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      <span className="blob bg-pastel-pink hidden sm:block" style={{ width: "min(40vw,320px)", height: "min(40vw,320px)", top: -80, left: -60 }} />
+      <span className="blob bg-pastel-blue" style={{ width: "min(50vw,280px)", height: "min(50vw,280px)", top: 40, right: -80 }} />
+      <span className="blob bg-pastel-yellow hidden sm:block" style={{ width: "min(55vw,360px)", height: "min(55vw,360px)", bottom: -120, left: "30%" }} />
+      <span className="blob bg-pastel-green" style={{ width: "min(45vw,240px)", height: "min(45vw,240px)", bottom: -60, right: 40 }} />
+    </div>
   );
 }
 
