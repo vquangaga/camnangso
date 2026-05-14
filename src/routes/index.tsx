@@ -185,24 +185,6 @@ function HomePage() {
           </Link>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="mx-auto max-w-4xl px-5 lg:px-8 py-24 text-center">
-        <h2 className="font-display text-4xl md:text-5xl">
-          Sẵn sàng để boss của bạn sống vui hơn?
-        </h2>
-        <p className="mt-5 text-lg text-muted-foreground">
-          Bắt đầu với trụ cột phù hợp nhất với hoàn cảnh của bạn ngay hôm nay.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3 justify-center">
-          <Link to="/khong-gian" className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors">
-            Tối ưu căn hộ
-          </Link>
-          <Link to="/tam-ly" className="px-6 py-3 rounded-full border border-border bg-background hover:bg-muted transition-colors font-medium">
-            Hiểu tâm lý boss
-          </Link>
-        </div>
-      </section>
     </>
   );
 }
