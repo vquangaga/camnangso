@@ -96,11 +96,13 @@ function HomePage() {
       <FunMarquee items={["Yêu boss đúng cách", "Sống xanh cùng pet", "Văn minh đô thị", "Khỏe — Vui — An toàn", "Petiquette 101"]} />
 
       {/* 5 trụ cột */}
-      <section className="mx-auto max-w-7xl px-5 lg:px-8 py-20">
+      <section className="relative mx-auto max-w-7xl px-5 lg:px-8 py-20">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
           <div>
-            <p className="text-sm uppercase tracking-wider text-primary font-medium">Mục lục</p>
-            <h2 className="mt-2 font-display text-4xl md:text-5xl">5 trụ cột của cẩm nang</h2>
+            <Sticker tone="orange" rotate={-3}><Sparkles className="w-3.5 h-3.5" /> Mục lục</Sticker>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl">
+              5 trụ cột <span className="text-gradient-fun">siêu xịn</span>
+            </h2>
           </div>
           <p className="text-muted-foreground max-w-md">
             Mỗi trụ cột là một bộ checklist + infographic có thể chụp màn hình lưu lại để dùng khi cần.
@@ -108,18 +110,22 @@ function HomePage() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {pillars.map((p) => (
+          {pillars.map((p, i) => (
             <Link
               key={p.to}
               to={p.to}
-              className={`group rounded-2xl border border-border bg-card p-7 hover:shadow-lg transition-all ${p.ring}`}
+              className={`group relative rounded-3xl border-2 border-foreground/10 bg-card p-7 hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden ${p.ring}`}
             >
-              <span className={`grid place-items-center w-12 h-12 rounded-xl ${p.bg} ${p.ink}`}>
-                <p.icon className="w-6 h-6" />
+              <span className={`absolute -top-3 -right-3 w-14 h-14 rounded-full grid place-items-center font-display text-xl ${p.bg} ${p.ink} sticker-shadow rotate-12 group-hover:rotate-0 transition-transform`}>
+                0{i + 1}
               </span>
-              <h3 className="mt-5 font-display text-2xl">{p.title}</h3>
-              <p className="mt-2 text-muted-foreground">{p.desc}</p>
-              <span className={`mt-5 inline-flex items-center gap-1 text-sm font-medium ${p.ink} group-hover:gap-2 transition-all`}>
+              <PawPrint className={`absolute -bottom-4 -left-4 w-28 h-28 ${p.ink} opacity-10 -rotate-12`} />
+              <span className={`relative grid place-items-center w-14 h-14 rounded-2xl ${p.bg} ${p.ink} sticker-shadow`}>
+                <p.icon className="w-7 h-7" />
+              </span>
+              <h3 className="relative mt-5 font-display text-2xl">{p.title}</h3>
+              <p className="relative mt-2 text-muted-foreground">{p.desc}</p>
+              <span className={`relative mt-5 inline-flex items-center gap-1 text-sm font-medium ${p.ink} group-hover:gap-3 transition-all`}>
                 Xem chi tiết <ArrowRight className="w-4 h-4" />
               </span>
             </Link>
@@ -128,11 +134,13 @@ function HomePage() {
       </section>
 
       {/* Điểm khác biệt */}
-      <section className="bg-muted/40 border-y border-border">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-muted/40 border-y border-border relative overflow-hidden">
+        <span className="blob bg-pastel-orange" style={{ width: 360, height: 360, top: -120, right: -80 }} />
+        <span className="blob bg-pastel-green" style={{ width: 280, height: 280, bottom: -80, left: -60 }} />
+        <div className="relative mx-auto max-w-7xl px-5 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-sm uppercase tracking-wider text-secondary font-medium">Điểm khác biệt</p>
-            <h2 className="mt-2 font-display text-4xl md:text-5xl">Không lý thuyết — chỉ thực chiến.</h2>
+            <Sticker tone="green" rotate={-4}><Star className="w-3.5 h-3.5 fill-current" /> Điểm khác biệt</Sticker>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl">Không lý thuyết — chỉ <span className="text-gradient-fun">thực chiến</span>.</h2>
             <p className="mt-5 text-lg text-muted-foreground">
               Thay vì khuyên chung chung "hãy dắt chó đi dạo", chúng tôi chỉ rõ
               <span className="text-foreground font-medium"> công viên nào ở phường Thanh Xuân cho phép mang thú cưng</span>,
@@ -141,18 +149,40 @@ function HomePage() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: MapPin, t: "Bản đồ thú y", d: "Tra cứu phòng khám 24/7 gần bạn." },
-              { icon: QrCode, t: "Mã QR liên kết", d: "Dẫn tới video, biểu mẫu, tài liệu PDF." },
-              { icon: Clock, t: "60 giây mẹo nhanh", d: "Video short-form đính kèm từng mục." },
-              { icon: Users, t: "Chuẩn cộng đồng", d: "Bộ Petiquette gửi BQL chung cư." },
+              { icon: MapPin, t: "Bản đồ thú y", d: "Tra cứu phòng khám 24/7 gần bạn.", bg: "bg-pastel-pink", ink: "text-pastel-pink-ink" },
+              { icon: QrCode, t: "Mã QR liên kết", d: "Dẫn tới video, biểu mẫu, tài liệu PDF.", bg: "bg-pastel-blue", ink: "text-pastel-blue-ink" },
+              { icon: Clock, t: "60 giây mẹo nhanh", d: "Video short-form đính kèm từng mục.", bg: "bg-pastel-yellow", ink: "text-pastel-yellow-ink" },
+              { icon: Users, t: "Chuẩn cộng đồng", d: "Bộ Petiquette gửi BQL chung cư.", bg: "bg-pastel-green", ink: "text-pastel-green-ink" },
             ].map((c) => (
-              <div key={c.t} className="rounded-2xl bg-card border border-border p-5">
-                <c.icon className="w-6 h-6 text-primary" />
+              <div key={c.t} className="rounded-2xl bg-card border-2 border-foreground/10 p-5 hover:-translate-y-1 hover:rotate-1 transition-transform sticker-shadow">
+                <span className={`grid place-items-center w-10 h-10 rounded-xl ${c.bg} ${c.ink}`}>
+                  <c.icon className="w-5 h-5" />
+                </span>
                 <h4 className="mt-3 font-display text-lg">{c.t}</h4>
                 <p className="mt-1 text-sm text-muted-foreground">{c.d}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative mx-auto max-w-4xl px-5 lg:px-8 py-24 text-center overflow-hidden">
+        <Sprinkles />
+        <Sticker tone="pink" rotate={-6} className="mb-4 wiggle"><Heart className="w-3.5 h-3.5 fill-current" /> Cùng bắt đầu nào!</Sticker>
+        <h2 className="font-display text-4xl md:text-5xl">
+          Sẵn sàng để boss của bạn <span className="text-gradient-fun">sống vui hơn?</span>
+        </h2>
+        <p className="mt-5 text-lg text-muted-foreground">
+          Bắt đầu với trụ cột phù hợp nhất với hoàn cảnh của bạn ngay hôm nay.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3 justify-center">
+          <Link to="/khong-gian" className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:-translate-y-0.5 sticker-shadow">
+            Tối ưu căn hộ
+          </Link>
+          <Link to="/tam-ly" className="px-6 py-3 rounded-full border-2 border-foreground bg-background hover:bg-foreground hover:text-background transition-colors font-medium">
+            Hiểu tâm lý boss
+          </Link>
         </div>
       </section>
 
