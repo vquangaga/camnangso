@@ -29,13 +29,13 @@ export function Sprinkles() {
 export function FunMarquee({ items }: { items: string[] }) {
   const loop = [...items, ...items];
   return (
-    <div className="relative overflow-hidden border-y border-border bg-foreground text-background py-3">
-      <div className="marquee flex gap-10 whitespace-nowrap will-change-transform">
+    <div className="relative overflow-hidden border-y border-border bg-foreground text-background py-2 sm:py-3">
+      <div className="marquee flex gap-6 sm:gap-10 whitespace-nowrap will-change-transform">
         {loop.map((t, i) => (
-          <span key={i} className="inline-flex items-center gap-3 font-display text-lg">
-            <PawPrint className="w-4 h-4 text-pastel-yellow" />
+          <span key={i} className="inline-flex items-center gap-2 sm:gap-3 font-display text-sm sm:text-lg">
+            <PawPrint className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pastel-yellow" />
             {t}
-            <Sparkles className="w-4 h-4 text-pastel-pink" />
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pastel-pink" />
           </span>
         ))}
       </div>
