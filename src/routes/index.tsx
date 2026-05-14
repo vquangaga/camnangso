@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Home, Stethoscope, Brain, Siren, Users, ArrowRight, Sparkles, MapPin, QrCode, Clock } from "lucide-react";
+import { Home, Stethoscope, Brain, Siren, Users, ArrowRight, Sparkles, MapPin, QrCode, Clock, PawPrint, Heart, Star } from "lucide-react";
 import heroImg from "@/assets/hero-pets.jpg";
+import { Blobs, Sprinkles, FunMarquee, Sticker } from "@/components/Decor";
 
 export const Route = createFileRoute("/")({
   head: () => ({
