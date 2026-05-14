@@ -15,12 +15,12 @@ export function Blobs() {
 /** Sprinkled stickers (paws, hearts, sparkles) — purely decorative */
 export function Sprinkles() {
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-      <PawPrint className="absolute w-8 h-8 text-pastel-pink-ink/60 float-slow" style={{ top: "10%", left: "6%", ['--r' as any]: "-18deg" }} />
-      <Heart className="absolute w-6 h-6 text-pastel-orange-ink/70 float-med fill-pastel-orange" style={{ top: "22%", right: "10%", ['--r' as any]: "12deg" }} />
-      <Sparkles className="absolute w-7 h-7 text-pastel-yellow-ink/80 float-fast" style={{ top: "60%", left: "4%" }} />
-      <Star className="absolute w-5 h-5 text-pastel-blue-ink/70 float-slow fill-pastel-blue" style={{ top: "70%", right: "8%", ['--r' as any]: "8deg" }} />
-      <PawPrint className="absolute w-6 h-6 text-pastel-green-ink/60 float-med" style={{ bottom: "8%", left: "40%", ['--r' as any]: "20deg" }} />
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden hidden sm:block">
+      <PawPrint className="absolute w-6 h-6 sm:w-8 sm:h-8 text-pastel-pink-ink/60 float-slow" style={{ top: "10%", left: "6%", ['--r' as any]: "-18deg" }} />
+      <Heart className="absolute w-5 h-5 sm:w-6 sm:h-6 text-pastel-orange-ink/70 float-med fill-pastel-orange" style={{ top: "22%", right: "10%", ['--r' as any]: "12deg" }} />
+      <Sparkles className="absolute w-6 h-6 sm:w-7 sm:h-7 text-pastel-yellow-ink/80 float-fast" style={{ top: "60%", left: "4%" }} />
+      <Star className="absolute w-4 h-4 sm:w-5 sm:h-5 text-pastel-blue-ink/70 float-slow fill-pastel-blue" style={{ top: "70%", right: "8%", ['--r' as any]: "8deg" }} />
+      <PawPrint className="absolute w-5 h-5 sm:w-6 sm:h-6 text-pastel-green-ink/60 float-med" style={{ bottom: "8%", left: "40%", ['--r' as any]: "20deg" }} />
     </div>
   );
 }
