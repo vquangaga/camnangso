@@ -26,55 +26,74 @@ function HomePage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 gradient-warm grain" />
+        <div className="absolute inset-0 gradient-rainbow opacity-70" />
+        <div className="absolute inset-0 grain" />
+        <Blobs />
+        <Sprinkles />
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8 py-16 md:py-24 grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" /> Phiên bản 1.0 · Cập nhật 2026
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-foreground text-background text-xs font-medium uppercase tracking-wider sticker-shadow">
+              <Sparkles className="w-3.5 h-3.5 text-pastel-yellow" /> Phiên bản 1.0 · Cập nhật 2026
             </div>
             <h1 className="mt-5 font-display text-5xl md:text-7xl leading-[1.02] text-foreground">
               Cẩm Nang Số <br />
-              <span className="text-primary italic">Chăm Sóc Thú Cưng</span> <br />
+              <span className="text-gradient-fun italic">Chăm Sóc Thú Cưng</span> <br />
               Môi Trường Đô Thị
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-xl">
+            <p className="mt-6 text-lg text-foreground/75 max-w-xl">
               Từ căn hộ 30m² đến chung cư 30 tầng — bộ tài liệu thực chiến giúp bạn
               nuôi chó mèo khỏe, vui và văn minh giữa lòng thành phố.
             </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <Sticker tone="pink" rotate={-4}><Heart className="w-3.5 h-3.5 fill-current" /> Cho Gen Z mê boss</Sticker>
+              <Sticker tone="blue" rotate={3}><PawPrint className="w-3.5 h-3.5" /> 100% thực chiến</Sticker>
+              <Sticker tone="yellow" rotate={-2}><Star className="w-3.5 h-3.5 fill-current" /> Miễn phí</Sticker>
+            </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/khong-gian"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:-translate-y-0.5 sticker-shadow"
               >
                 Bắt đầu khám phá <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 to="/so-cuu"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border bg-background hover:bg-muted transition-colors font-medium"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-foreground bg-background hover:bg-foreground hover:text-background transition-colors font-medium"
               >
                 <Siren className="w-4 h-4 text-destructive" /> Sơ cứu khẩn cấp
               </Link>
             </div>
             <dl className="mt-10 grid grid-cols-3 gap-6 max-w-md">
               {[
-                { k: "5", v: "Trụ cột chính" },
-                { k: "60s", v: "Mẹo nhanh" },
-                { k: "100%", v: "Thực chiến" },
+                { k: "5", v: "Trụ cột chính", c: "text-pastel-pink-ink" },
+                { k: "60s", v: "Mẹo nhanh", c: "text-pastel-blue-ink" },
+                { k: "100%", v: "Thực chiến", c: "text-pastel-orange-ink" },
               ].map((s) => (
                 <div key={s.v}>
-                  <dt className="font-display text-3xl text-primary">{s.k}</dt>
+                  <dt className={`font-display text-3xl ${s.c}`}>{s.k}</dt>
                   <dd className="text-sm text-muted-foreground mt-1">{s.v}</dd>
                 </div>
               ))}
             </dl>
           </div>
-          <div className="lg:col-span-5">
-            <div className="relative rounded-3xl overflow-hidden border border-border shadow-2xl shadow-primary/10">
+          <div className="lg:col-span-5 relative">
+            {/* decorative ring */}
+            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-pastel-pink via-pastel-yellow to-pastel-blue blur-md opacity-70" />
+            <div className="relative rounded-3xl overflow-hidden border-4 border-background shadow-2xl shadow-primary/20">
               <img src={heroImg} alt="Chó và mèo trong căn hộ ấm cúng" width={1536} height={1024} className="w-full h-auto" />
             </div>
+            <Sticker tone="yellow" rotate={-12} className="absolute -top-3 -left-3 wiggle">
+              <Sparkles className="w-3.5 h-3.5" /> Mới!
+            </Sticker>
+            <Sticker tone="pink" rotate={8} className="absolute -bottom-3 -right-3 float-med">
+              <Heart className="w-3.5 h-3.5 fill-current" /> Made with love
+            </Sticker>
           </div>
         </div>
       </section>
+
+      {/* Marquee */}
+      <FunMarquee items={["Yêu boss đúng cách", "Sống xanh cùng pet", "Văn minh đô thị", "Khỏe — Vui — An toàn", "Petiquette 101"]} />
 
       {/* 5 trụ cột */}
       <section className="mx-auto max-w-7xl px-5 lg:px-8 py-20">
