@@ -161,4 +161,63 @@
   .gradient-warm {
     background: linear-gradient(135deg, oklch(0.97 0.018 80) 0%, oklch(0.93 0.04 60) 100%);
   }
+  .gradient-rainbow {
+    background: linear-gradient(110deg,
+      oklch(0.92 0.05 10) 0%,
+      oklch(0.94 0.08 95) 25%,
+      oklch(0.91 0.06 145) 50%,
+      oklch(0.90 0.05 230) 75%,
+      oklch(0.90 0.07 55) 100%);
+  }
+  .text-gradient-fun {
+    background: linear-gradient(110deg,
+      oklch(0.58 0.15 35),
+      oklch(0.50 0.14 50),
+      oklch(0.45 0.12 10),
+      oklch(0.42 0.12 235));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .sticker-shadow {
+    box-shadow:
+      0 1px 0 oklch(0.22 0.03 40 / 0.08),
+      0 8px 24px -8px oklch(0.58 0.15 35 / 0.25);
+  }
+  .marquee {
+    animation: marquee 30s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes float-y {
+    0%,100% { transform: translateY(0) rotate(var(--r,0deg)); }
+    50%     { transform: translateY(-12px) rotate(var(--r,0deg)); }
+  }
+  .float-slow { animation: float-y 6s ease-in-out infinite; }
+  .float-med  { animation: float-y 4.5s ease-in-out infinite; }
+  .float-fast { animation: float-y 3s ease-in-out infinite; }
+  @keyframes wiggle {
+    0%,100% { transform: rotate(-3deg); }
+    50%     { transform: rotate(3deg); }
+  }
+  .wiggle { animation: wiggle 2.5s ease-in-out infinite; transform-origin: center; }
+  @keyframes spin-slow {
+    to { transform: rotate(360deg); }
+  }
+  .spin-slow { animation: spin-slow 18s linear infinite; }
+  @keyframes pop-in {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .pop-in { animation: pop-in 0.6s cubic-bezier(.34,1.56,.64,1) both; }
 }
