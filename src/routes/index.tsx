@@ -168,6 +168,10 @@ function HomePage() {
       </section>
 
       {/* CTA */}
+      {/* Core Features */}
+      <CoreFeatures />
+
+      {/* CTA */}
       <section className="relative mx-auto max-w-4xl px-5 lg:px-8 py-24 text-center overflow-hidden">
         <Sprinkles />
         <Sticker tone="pink" rotate={-6} className="mb-4 wiggle"><Heart className="w-3.5 h-3.5 fill-current" /> Cùng bắt đầu nào!</Sticker>
